@@ -15,6 +15,14 @@ public class MultipleChoiceQuestion extends Question {
 		this.choices = choices;
 	}
 	
+	public int getPoints() {
+		if (this.getClass()==MultipleChoiceQuestion.class) {
+			return 1;
+		} else {
+			return this.choices.length;
+		}
+	}
+	
 	public void displayPrompt() {
 		//FIXME
 		

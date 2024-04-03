@@ -21,12 +21,24 @@ public class Quiz {
 		int sum = 0;
 		for(Question q : questions) {
 			sum += q.getPoints();
+			System.out.println(sum);
 		}
 		return sum;
 	}
 	
 	public void takeQuiz() {
-		//FIXME
+		int currentPoints = 0;
+		
+		for (int i=0;i<questions.length;i++) {
+			
+			Question currentQuestion = questions[i];
+			
+			currentQuestion.displayPrompt();
+			String answer = this.getUserAnswer();
+			currentPoints += currentQuestion.checkAnswer(answer);
+			
+		}
+		System.out.println("SCORE: "+currentPoints+" / "+this.getTotalPoints());
 	}
 	
 	public static void main(String[] args) {
